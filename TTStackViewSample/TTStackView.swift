@@ -126,8 +126,7 @@ class TTStackView: UIStackView {
         for i in 0..<TTButtons.count{
             arrayResould.append(TTButtons[i].isSelected)
         }
-        
-        
+
         delegate?.buttonsData(data: arrayResould)
         
     }

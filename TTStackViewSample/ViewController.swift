@@ -31,6 +31,6 @@ class ViewController: UIViewController, TTStackViewDelegate {
         for i in 0..<buttonsVar.count{
             print("button number \(i) is \(buttonsVar[i])")
         }
-    }    
+    }
 }
 
