@@ -102,8 +102,22 @@ class TTStackView: UIStackView {
             TTButtons[index].isSelected = !TTButtons[index].isSelected
         
         }else if customSelectedButton == true{
-            
-            
+            guard let index = TTButtons.index(of: button) else {
+                fatalError("error")
+            }
+            if(index == 0){
+                TTButtons[0].isSelected = !TTButtons[1].isSelected
+                TTButtons[1].isSelected = false
+                TTButtons[2].isSelected = false
+            }else if(index == 1){
+                TTButtons[0].isSelected = false
+                TTButtons[1].isSelected = !TTButtons[index].isSelected
+            }else if(index == 2){
+                TTButtons[0].isSelected = false
+                TTButtons[2].isSelected = !TTButtons[index].isSelected
+            }else if(TTButtons[0].isSelected == false && TTButtons[1].isSelected == false && TTButtons[2].isSelected == false ){
+                TTButtons[0].isSelected = true
+            }
         }
         
         delegate?.buttonsData(data: TTButtons)

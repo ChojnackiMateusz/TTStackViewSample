@@ -32,7 +32,7 @@
 abc
 ax</string>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="CustomSelected" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="CustomSelected" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kk-us-UnD">
