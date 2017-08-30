@@ -8,10 +8,14 @@
 
 import UIKit
 
+
+protocol TTStackViewDelegate {
+    func buttonsData(data: [UIButton])
+}
+
+
 class TTStackView: UIStackView {
-    
-    
-    
+    var delegate: TTStackViewDelegate? = nil
     
     private var TTButtons = [UIButton]()
     
@@ -95,14 +99,14 @@ class TTStackView: UIStackView {
             for i in 0..<TTButtons.count{
                 TTButtons[i].isSelected = false
             }
-            
             TTButtons[index].isSelected = !TTButtons[index].isSelected
+        
         }else if customSelectedButton == true{
             
             
         }
         
-        
+        delegate?.buttonsData(data: TTButtons)
         
     }
     
