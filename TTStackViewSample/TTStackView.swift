@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol TTStackViewDelegate {
-    func buttonsData(data: [UIButton])
+    func buttonsData(data: [Bool])
 }
 
 
@@ -115,12 +115,20 @@ class TTStackView: UIStackView {
             }else if(index == 2){
                 TTButtons[0].isSelected = false
                 TTButtons[2].isSelected = !TTButtons[index].isSelected
-            }else if(TTButtons[0].isSelected == false && TTButtons[1].isSelected == false && TTButtons[2].isSelected == false ){
+            }
+            
+            if(TTButtons[0].isSelected == false && TTButtons[1].isSelected == false && TTButtons[2].isSelected == false ){
                 TTButtons[0].isSelected = true
             }
         }
         
-        delegate?.buttonsData(data: TTButtons)
+        var arrayResould = [Bool]()
+        for i in 0..<TTButtons.count{
+            arrayResould.append(TTButtons[i].isSelected)
+        }
+        
+        
+        delegate?.buttonsData(data: arrayResould)
         
     }
     

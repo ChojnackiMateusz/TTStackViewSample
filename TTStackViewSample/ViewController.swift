@@ -11,8 +11,13 @@ import UIKit
 class ViewController: UIViewController, TTStackViewDelegate {
     
     @IBOutlet var stackView: TTStackView?
-    var buttonsVar = [UIButton]()
-    func buttonsData(data: [UIButton]) {
+    var buttonsVar = [Bool](){
+        didSet{
+            printInfo()
+        }
+        
+    }
+    func buttonsData(data: [Bool]) {
         buttonsVar = data
     }
     
@@ -24,13 +29,8 @@ class ViewController: UIViewController, TTStackViewDelegate {
     
     func printInfo(){
         for i in 0..<buttonsVar.count{
-            print("button number \(i) is \(buttonsVar[i].isSelected)")
+            print("button number \(i) is \(buttonsVar[i])")
         }
-    }
-
-    @IBAction func printButtons(_ sender: Any) {
-        printInfo()
-    }
-    
+    }    
 }
 
