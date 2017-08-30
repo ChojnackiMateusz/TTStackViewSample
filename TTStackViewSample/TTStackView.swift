@@ -10,10 +10,13 @@ import UIKit
 
 class TTStackView: UIStackView {
     
+    
+    
+    
     private var TTButtons = [UIButton]()
-
-
-    var title = ["a","b","c","d","e"]
+    
+    
+    var title = [String]()
     
     @IBInspectable var buttonsSize: CGSize = CGSize(width: 100.0, height: 30.0) {
         didSet {
@@ -21,8 +24,21 @@ class TTStackView: UIStackView {
         }
     }
     
-    @IBInspectable var buttonCount: Int = 5 {
+    
+    var customSelectedButton = Bool()
+    @IBInspectable var CustomSelected: Bool = false{
         didSet {
+            customSelectedButton = CustomSelected
+            setupButtons()
+        }
+    }
+    
+    
+    private var internalTextArray: [String]?
+    
+    @IBInspectable var segments: String = "" {
+        didSet {
+            internalTextArray = segments.components(separatedBy: "\n")
             setupButtons()
         }
     }
@@ -37,6 +53,7 @@ class TTStackView: UIStackView {
         setupButtons()
     }
     
+    
     private func setupButtons(){
         
         for button in TTButtons {
@@ -45,8 +62,11 @@ class TTStackView: UIStackView {
         }
         TTButtons.removeAll()
         
-        
-        for i in 0..<buttonCount {
+        let buttonCount = internalTextArray?.count
+        if(buttonCount == nil){
+            return
+        }
+        for i in 0..<internalTextArray!.count {
             
             let button = UIButton()
             button.setBackgroundImage(UIImage(color: .red), for: UIControlState.normal)
@@ -55,13 +75,12 @@ class TTStackView: UIStackView {
             button.heightAnchor.constraint(equalToConstant: buttonsSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: buttonsSize.width).isActive = true
             button.layer.cornerRadius = 16
-            button.setTitle(title[i], for: .normal)
+            button.setTitle(internalTextArray![i], for: .normal)
             button.setTitleColor(UIColor.black, for: .normal)
             
             button.addTarget(self, action: #selector(TTStackView.ratingButtonTapped(button:)), for: .touchUpInside)
             
             addArrangedSubview(button)
-            
             
             TTButtons.append(button)
         }
@@ -69,7 +88,22 @@ class TTStackView: UIStackView {
     
     @objc func ratingButtonTapped(button: UIButton) {
         
-        print(button.titleLabel?.text)
+        if customSelectedButton == false{
+            guard let index = TTButtons.index(of: button) else {
+                fatalError("error")
+            }
+            for i in 0..<TTButtons.count{
+                TTButtons[i].isSelected = false
+            }
+            
+            TTButtons[index].isSelected = !TTButtons[index].isSelected
+        }else if customSelectedButton == true{
+            
+            
+        }
+        
+        
+        
     }
     
     

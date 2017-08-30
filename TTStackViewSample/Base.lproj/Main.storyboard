@@ -19,10 +19,20 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Krb-1Z-zWb" customClass="TTStackView" customModule="TTStackViewSample" customModuleProvider="target">
                                 <rect key="frame" x="28" y="278" width="318" height="110"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="buttonCount">
                                         <integer key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text1" value="a"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text2" value="b"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text3" value="c"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="segments">
+                                        <string key="value">xyz
+abc
+ax</string>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="CustomSelected" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
                         </subviews>
